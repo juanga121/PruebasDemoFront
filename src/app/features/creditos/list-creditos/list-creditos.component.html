@@ -1,0 +1,52 @@
+<h2>Lista de Créditos</h2>
+
+<table mat-table [dataSource]="creditos" class="mat-elevation-z8">
+
+    <!-- ID -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let c"> {{c.id}} </td>
+  </ng-container>
+
+  <!-- Monto -->
+  <ng-container matColumnDef="monto">
+    <th mat-header-cell *matHeaderCellDef> Monto </th>
+    <td mat-cell *matCellDef="let c"> {{c.monto | number}} </td>
+  </ng-container>
+
+  <!-- Saldo -->
+  <ng-container matColumnDef="saldo">
+    <th mat-header-cell *matHeaderCellDef> Saldo </th>
+    <td mat-cell *matCellDef="let c"> {{c.saldo | number}} </td>
+  </ng-container>
+
+  <!-- Tasa -->
+  <ng-container matColumnDef="tasaInteres">
+    <th mat-header-cell *matHeaderCellDef> Tasa </th>
+    <td mat-cell *matCellDef="let c"> {{c.tasaInteres | percent}} </td>
+  </ng-container>
+
+  <!-- Meses -->
+  <ng-container matColumnDef="meses">
+    <th mat-header-cell *matHeaderCellDef> Meses </th>
+    <td mat-cell *matCellDef="let c"> {{c.meses}} </td>
+  </ng-container>
+
+  <!-- Estado -->
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> Estado </th>
+    <td mat-cell *matCellDef="let c">
+      {{ c.estado === 1 ? 'Activo' : 'Pagado' }}
+    </td>
+  </ng-container>
+
+  <!-- Fecha de Creación -->
+  <ng-container matColumnDef="fechaCreacion">
+    <th mat-header-cell *matHeaderCellDef> Fecha de Creación </th>
+    <td mat-cell *matCellDef="let c"> {{c.fechaCreacion | date}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
