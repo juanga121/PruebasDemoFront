@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Credito } from '../../shared/models/credito';
+import { ApiResponse } from '../../shared/models/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,14 @@ export class CreditoService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerCreditos(): Observable<Credito[]> {
-    return this.http.get<Credito[]>(this.apiUrl + '/api/credito');
+  obtenerCreditos(): Observable<ApiResponse<Credito[]>> {
+    return this.http.get<ApiResponse<Credito[]>>(this.apiUrl + '/api/credito');
+  }
+
+  pagarCredito(id: string, monto: number): Observable<ApiResponse<any>> {
+    return this.http.put<ApiResponse<any>>(
+      this.apiUrl + '/api/credito/pagar/' + id,
+      monto
+    );
   }
 }
