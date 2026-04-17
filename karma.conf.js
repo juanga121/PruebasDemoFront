@@ -1,9 +1,6 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+const path = require('path');
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-export default function (config) {
+module.exports = function (config) {
   config.set({
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
 
@@ -28,4 +25,4 @@ export default function (config) {
       ]
     }
   });
-}
+};
