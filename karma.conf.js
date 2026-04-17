@@ -1,3 +1,8 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 export default function (config) {
   config.set({
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -14,7 +19,7 @@ export default function (config) {
     reporters: ['progress', 'kjhtml', 'coverage'],
 
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage'),
+      dir: path.join(__dirname, './coverage'),
       subdir: '.',
       reporters: [
         { type: 'html' },
@@ -23,4 +28,4 @@ export default function (config) {
       ]
     }
   });
-};
+}
