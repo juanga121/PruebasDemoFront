@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Run tests with coverage
-        run: npm run test -- --watch=false --code-coverage
+        run: npx ng test --watch=false --browsers=ChromeHeadless --code-coverage
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
