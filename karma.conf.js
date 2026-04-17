@@ -1,9 +1,9 @@
 module.exports = function (config) {
   config.set({
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessCI'],
 
     customLaunchers: {
-      ChromeHeadless: {
+      ChromeHeadlessCI: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox', '--disable-gpu']
       }
