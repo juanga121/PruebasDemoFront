@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CreditoService } from '../../../core/services/credito.service';
 
 import { MatTableModule } from '@angular/material/table';
@@ -15,9 +15,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   templateUrl: './list-creditos.component.html',
   styleUrl: './list-creditos.component.css'
 })
-export class ListCreditosComponent {
+export class ListCreditosComponent implements OnInit { 
 
-  private service = inject(CreditoService);
+  private readonly service = inject(CreditoService);
 
   creditos: Credito[] = [];
 

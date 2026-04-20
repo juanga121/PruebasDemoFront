@@ -12,7 +12,7 @@ export class CreditoService {
 
   apiUrl: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   obtenerCreditos(): Observable<ApiResponse<Credito[]>> {
     return this.http.get<ApiResponse<Credito[]>>(this.apiUrl + '/api/credito');
