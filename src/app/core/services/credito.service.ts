@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Credito } from '../../shared/models/credito';
 import { ApiResponse } from '../../shared/models/api-response';
+import { PagarCuota } from '../../shared/models/pagarCredito';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,10 @@ export class CreditoService {
   }
 
   pagarCredito(id: string, monto: number): Observable<ApiResponse<any>> {
+    const body: PagarCuota = { id, montoPago: monto };
     return this.http.put<ApiResponse<any>>(
-      this.apiUrl + '/api/credito/pagar/' + id,
-      monto
+      this.apiUrl + '/api/credito/pagar',
+      body
     );
   }
 }
